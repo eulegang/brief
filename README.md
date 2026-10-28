@@ -18,5 +18,6 @@ Microphone access requires localhost or HTTPS.
 No audio is uploaded to the Hono server.
 
 The frontend source is `src/client/app.ts`; `npm run build:client` compiles it to `public/app.js`.
+The server source is `src/server/server.ts`; `npm run build:server` compiles it to `dist/server.js`.
 `npm run dev` builds the frontend once before starting the server; rerun `npm run build:client` after frontend edits.
 Run `npm run build` and `npm start` to serve the compiled app.
