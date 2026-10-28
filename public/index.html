@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brief — Dictation</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Dictation</h1>
+      <p>Hold the button and speak. Release it to finish.</p>
+      <label for="transcript">Transcript</label>
+      <textarea id="transcript" rows="10" placeholder="Your words will appear here…"></textarea>
+      <div class="controls">
+        <button id="dictate" type="button" aria-pressed="false">Hold to dictate</button>
+        <span id="status" role="status" aria-live="polite">Ready</span>
+      </div>
+      <p class="hint">You can also focus the button and hold Space or Enter. Microphone access and a supported browser are required.</p>
+    </main>
+  </body>
+</html>
