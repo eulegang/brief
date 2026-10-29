@@ -4,12 +4,13 @@ import * as record from "./record.js"
 
 const body = document.querySelector("body");
 
-const voice = document.getElementById("voice-btn");
-const cancel = document.getElementById("cancel-btn");
-const status = document.getElementById("status");
-const transcript = document.getElementById("transcript") as HTMLTextAreaElement | null;
+const voice = getId<HTMLButtonElement>("voice-btn");
+const cancel = getId<HTMLButtonElement>("cancel-btn");
+const clear = getId<HTMLButtonElement>("clear-btn");
+const status = getId<HTMLElement>("status");
+const transcript = getId<HTMLButtonElement>("transcript");
 
-if (!body || !voice || !cancel || !status || !transcript) {
+if (!body) {
 	throw new Error("failed to find controls");
 }
 
@@ -21,11 +22,21 @@ window.addEventListener('end-record', () => {
 	body.classList.remove("recording");
 })
 
-
+const textSlots: string[] = [];
 window.addEventListener('record-msg', (e) => {
-	transcript.value = transcript.value + e.detail.msg;
+	textSlots.push(e.detail.msg);
+	recalcTranscript();
 })
 
+function recalcTranscript() {
+	clear.disabled = textSlots.length === 0;
+	transcript.value = textSlots.join("\n\n");
+}
+
+clear.addEventListener('click', () => {
+	textSlots.length = 0;
+	recalcTranscript();
+});
 
 voice.addEventListener("pointerdown", (e) => {
 	e.preventDefault();
@@ -58,3 +69,13 @@ window.addEventListener("keydown", (e) => {
 window.addEventListener('keyup', (event) => {
 	if (event.key === heldKey) record.end();
 })
+
+function getId<T extends HTMLElement>(id: string): T {
+	const element = document.getElementById(id);
+
+	if (!element) {
+		throw new Error(`failed to find "#${id}"`);
+	}
+
+	return element as T;
+}

@@ -4,7 +4,7 @@ let active: SpeechRecognition | null = null;
 
 export function start() {
 	if (!SpeechRecognition || active) return;
-	console.log("start recording");
+	console.debug("start recording");
 
 	const inst = new SpeechRecognition();
 
@@ -22,14 +22,11 @@ export function start() {
 	};
 
 	inst.onresult = (event) => {
-		console.log("event", event);
 		const parts: string[] = []
 		for (let i = 0; i < event.results.length; i++) {
 			parts.push(event.results[i][0].transcript.trim())
 		}
 		const words = parts.filter(Boolean).join(' ')
-
-		console.log("processed", words);
 
 		dispatchMsg(words);
 	}
@@ -49,7 +46,7 @@ export function start() {
 export function end() {
 	if (!active) return;
 
-	console.log("end recording");
+	console.debug("end recording");
 
 	active.stop();
 }
