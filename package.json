@@ -14,14 +14,15 @@
     "typecheck": "tsc --noEmit -p tsconfig.server.json && tsc --noEmit -p tsconfig.client.json"
   },
   "dependencies": {
-    "@hono/node-server": "^1.19.0",
+    "@hono/node-server": "^2.1.5",
     "hono": "^4.9.0"
   },
   "devDependencies": {
     "@types/dom-speech-recognition": "^0.0.12",
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.0.0",
     "concurrently": "^10.0.6",
     "tsx": "^4.20.0",
-    "typescript": "^5.9.0"
+    "typescript": "^5.9.3",
+    "typescript-language-server": "^6.0.2"
   }
 }

@@ -8,5 +8,5 @@
     "rootDir": "src/client",
     "outDir": "public"
   },
-  "include": ["src/client/**/*.ts"]
+  "include": ["src/client/**/*.ts", "src/client/types.d.ts"]
 }

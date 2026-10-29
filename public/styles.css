@@ -43,13 +43,13 @@ textarea {
 }
 
 textarea::placeholder {
-  color: #333; /* Replace with your desired color */
+  color: #ddd; /* Replace with your desired color */
   opacity: 1;     /* Firefox applies a default opacity, this ensures full color depth */
 }
 
 /* Layout */
 
-main { max-width: 760px; margin: 8vh auto; padding: 0 1.5rem; }
+main { max-width: 760px; margin: 0vh auto; padding: 0; }
 footer { 
 	position: fixed;
 	margin: 0em auto 0em auto;
@@ -66,8 +66,11 @@ footer {
 .controls { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
 #status { margin-left: auto; padding-right: 1rem; }
 
+body.recording #voice-btn {
+ background: #a83232; 
+}
 
-button[aria-pressed="true"] { background: #a83232; }
+/* button[aria-pressed="true"] { background: #a83232; } */
 button:disabled { background: #777; cursor: not-allowed; }
 button:focus-visible, textarea:focus-visible { outline: 3px solid #e29b38; outline-offset: 2px; }
 .hint { color: #555; font-size: 0.9rem; }
