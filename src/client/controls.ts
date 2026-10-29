@@ -22,7 +22,7 @@ window.addEventListener('end-record', () => {
 })
 
 
-window.addEventListener('record-msg', (e: CustomEvent<MsgRecordEventDetail>) => {
+window.addEventListener('record-msg', (e) => {
 	transcript.value = transcript.value + e.detail.msg;
 })
 
